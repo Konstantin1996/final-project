@@ -1,0 +1,30 @@
+
+.pokemon-item {
+    border-radius: 5%;
+    background: #f6f7df;
+    margin: 3%;
+    border: 1px solid rgb(219, 219, 219);
+}
+
+.pokemon-name {
+    color: rgba(64, 70, 66, 0.6901960784313725);
+}
+
+.btn-catch {
+    cursor: pointer;
+    background: none;
+    color: rgb(53, 53, 53);
+    border: 0;
+    font-size: 43px;
+    padding-bottom: 10px;
+}
+
+.btn-catch:hover{
+    color: rgba(0, 0, 0, 0.42);
+}
+
+
+.btn-catch:disabled {
+    cursor: default;
+    color: rgba(194, 194, 194, 0.45098039215686275);  
+}

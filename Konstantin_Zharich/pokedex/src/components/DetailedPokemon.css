@@ -1,0 +1,20 @@
+
+html, body, #root, #root .App, #root .App main, #root .App main .pokemon {
+    height: 100%
+  }
+
+.pokemon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+@media only screen and (max-width: 600px) {
+  .pokemon {
+    padding-top: 120px;
+  }
+}
+
+
+
+

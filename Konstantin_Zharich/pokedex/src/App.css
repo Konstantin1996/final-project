@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.pokemons {
+  padding-top: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-basis: 300px;
+  align-items: center;
+  flex-direction: row;
+}
+
+.load-more {
+  color: white;
+  padding: 10px;
+  background: rgb(87, 181, 193);
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 100px;
+  display: block;
+}
+
+.load-more:hover {
+  background: rgba(0, 142, 161, 0.44);
+}
+
+.load-more:active {
+  background: rgb(71, 154, 165);
+}
