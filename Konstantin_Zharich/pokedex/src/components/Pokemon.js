@@ -8,6 +8,7 @@ export class Pokemon extends Component {
 
     render() {
         return (
+            // Applying styles for only one pokemon or for all pokemons depending on the showSingle property
             this.props.showSingle ?
                 <section className="pokemon">
                     <div className="single-pokemon-item">

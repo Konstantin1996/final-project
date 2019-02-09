@@ -22,12 +22,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // On first load get 10 pokemons
     fetch('http://localhost:3001/pokemons?_limit=10')
       .then(res => res.json())
       .then((json) => {
         this.setState(function () {
           let localCatched = JSON.parse(localStorage.getItem('_catchedPokemons'));
           json.forEach(function (data) {
+            // if catched pokemon exists in local storage then get the date,time,status from it
             let index = localCatched.findIndex((pokemon) => pokemon.id === data.id);
             if (index !== -1) {
               data.catched = localCatched[index].catched;
@@ -40,7 +42,6 @@ class App extends Component {
             }
           })
 
-          let ids = json.map((data) => data.id);
           return { pokemons: [...json] }
         });
       })
@@ -48,6 +49,7 @@ class App extends Component {
   }
 
   loadMorePokemons = (e) => {
+    // Load pokemons by portions (10 pokemons per load) amd write them to the state
     fetch(`http://localhost:3001/pokemons?_start=${this.state.pokemons.length}&_end=${this.state.pokemons.length + 10}`)
       .then(res => res.json())
       .then((json) => {
@@ -66,8 +68,6 @@ class App extends Component {
                 data.catchedTime = '';
               }
             })
-            let ids = json.map((data) => data.id);
-            console.log(ids);
             return { pokemons: [...this.state.pokemons, ...json] }
           }
         );
@@ -91,8 +91,7 @@ class App extends Component {
   }
 
   catchPokemon = (id, name) => {
-    console.log(id);
-
+    // Use immutability helpers to update one pokemon in the array and after that add this to catched pokemons list
     this.setState(
       { pokemons: update(this.state.pokemons, { [id - 1]: { $set: { id: id, name: name, catched: true, catchedDate: new Date().toLocaleDateString(), catchedTime: new Date().toLocaleTimeString(), } } }) },
 
